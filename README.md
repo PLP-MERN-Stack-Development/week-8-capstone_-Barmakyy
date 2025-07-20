@@ -1,52 +1,101 @@
-# MERN Stack Capstone Project
+# WASH Facility Monitoring System
 
-This assignment focuses on designing, developing, and deploying a comprehensive full-stack MERN application that showcases all the skills you've learned throughout the course.
+A full-stack MERN application for tracking, managing, and improving Water, Sanitation, and Hygiene (WASH) standards in health facilities. The platform empowers facility staff, managers, and administrators to monitor compliance, submit reports, and access training resources, ensuring safe and healthy environments for all.
 
-## Assignment Overview
+---
 
-You will:
-1. Plan and design a full-stack MERN application
-2. Develop a robust backend with MongoDB, Express.js, and Node.js
-3. Create an interactive frontend with React.js
-4. Implement testing across the entire application
-5. Deploy the application to production
+## 🚀 Live Demo
 
-## Getting Started
+[Deployed Application Link](wash-system.vercel.app)  
 
-1. Accept the GitHub Classroom assignment
-2. Clone the repository to your local machine
-3. Follow the instructions in the `Week8-Assignment.md` file
-4. Plan, develop, and deploy your capstone project
 
-## Files Included
+---
 
-- `Week8-Assignment.md`: Detailed assignment instructions
+## 📝 Project Description
 
-## Requirements
+This project is a comprehensive WASH Facility Monitoring System built with the MERN stack (MongoDB, Express.js, React, Node.js).
+**Key features:**
+
+- User authentication and role-based dashboards (Admin, Manager, Staff)
+- Facility management and real-time monitoring
+- Report submission and automated reporting
+- Audit logs and user management (Admin)
+- Accessibility and responsive design
+- Full testing coverage (unit, integration, E2E)
+
+---
+
+## ⚙️ Setup Instructions
+
+### Prerequisites
 
 - Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Git and GitHub account
-- Accounts on deployment platforms (Render/Vercel/Netlify/etc.)
+- MongoDB (local or Atlas)
+- pnpm (or npm/yarn)
+- Git
 
-## Project Ideas
+### 1. Clone the repository
 
-The `Week8-Assignment.md` file includes several project ideas, but you're encouraged to develop your own idea that demonstrates your skills and interests.
+```sh
+git clone <your-repo-url>
+cd week-8-capstone_-Barmakyy
+```
 
-## Submission
+### 2. Install dependencies
 
-Your project will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+#### Backend
 
-1. Commit and push your code regularly
-2. Include comprehensive documentation
-3. Deploy your application and add the live URL to your README.md
-4. Create a video demonstration and include the link in your README.md
+```sh
+cd server
+pnpm install
+```
 
-## Resources
+#### Frontend
+
+```sh
+cd ../client
+pnpm install
+```
+
+### 3. Set up environment variables
+
+- Copy `.env.example` to `.env` in the `server/` directory and fill in your MongoDB URI and JWT secret.
+
+### 4. Run the application
+
+#### Start the backend
+
+```sh
+cd server
+pnpm dev
+```
+
+#### Start the frontend
+
+```sh
+cd ../client
+pnpm dev
+```
+
+### 5. Run tests
+
+- **Backend:** `pnpm test` (in `server/`)
+- **Frontend:** `pnpm test` (in `client/`)
+- **E2E:** `pnpm cypress:open` (in `client/`)
+
+---
+
+## 📦 Deployment
+
+- The frontend is deployed on Vercel.
+- The backend is deployed on Render.
+- [Live App Link](wash-system.vercel.app)
+
+---
+
+## 📚 Resources
 
 - [MongoDB Documentation](https://docs.mongodb.com/)
 - [Express.js Documentation](https://expressjs.com/)
 - [React Documentation](https://react.dev/)
 - [Node.js Documentation](https://nodejs.org/en/docs/)
-- [GitHub Classroom Guide](https://docs.github.com/en/education/manage-coursework-with-github-classroom) 

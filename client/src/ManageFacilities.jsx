@@ -63,14 +63,16 @@ const ManageFacilities = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-100 py-10 px-2 md:px-6 flex items-center justify-center">
-      <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl p-8 md:p-12 relative">
-        <button
-          onClick={() => navigate('/admin/dashboard')}
-          className="absolute left-6 top-6 bg-teal-100 hover:bg-teal-200 text-teal-700 font-bold py-2 px-4 rounded-lg shadow-sm transition"
-        >
-          ← Back to Dashboard
-        </button>
-        <h2 className="text-3xl font-bold text-teal-700 mb-8 text-center drop-shadow">Manage Facilities</h2>
+      <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-6">
+          <button
+            onClick={() => navigate('/admin/dashboard')}
+            className="bg-teal-100 hover:bg-teal-200 text-teal-700 font-bold py-2 px-4 rounded-lg shadow-sm transition"
+          >
+            ← Back to Dashboard
+          </button>
+          <h2 className="text-3xl font-bold text-teal-700 text-center drop-shadow">Manage Facilities</h2>
+        </div>
         <button
           onClick={() => setShowForm(true)}
           className="mb-6 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-6 rounded-lg shadow transition"

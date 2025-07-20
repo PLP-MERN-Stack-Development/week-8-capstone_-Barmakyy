@@ -8,6 +8,7 @@ const AdminDashboard = () => {
   const [recentLogs, setRecentLogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,11 +58,39 @@ const AdminDashboard = () => {
             Logout
           </button>
         </div>
+
+        {/* Hamburger for dashboard links (mobile only) */}
+        <div className="md:hidden mb-6 relative">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-3xl p-2"
+            aria-label="Open dashboard menu"
+          >
+            &#9776;
+          </button>
+          {menuOpen && (
+            <div className="absolute bg-white shadow-lg rounded-lg mt-2 w-48 z-30 right-0">
+              <Link to="/admin/users" className="block px-4 py-2 hover:bg-teal-100" onClick={() => setMenuOpen(false)}>Manage Users</Link>
+              <Link to="/facilities" className="block px-4 py-2 hover:bg-teal-100" onClick={() => setMenuOpen(false)}>Manage Facilities</Link>
+              <Link to="/reports" className="block px-4 py-2 hover:bg-teal-100" onClick={() => setMenuOpen(false)}>View Reports</Link>
+              <Link to="/admin/audit-logs" className="block px-4 py-2 hover:bg-teal-100" onClick={() => setMenuOpen(false)}>Audit Logs</Link>
+            </div>
+          )}
+        </div>
+
+        {/* Desktop links */}
+        <div className="hidden md:grid grid-cols-4 gap-6 mb-12">
+          <Link to="/admin/users" className="bg-teal-600 hover:bg-teal-700 text-white rounded-2xl shadow-lg p-6 text-center font-bold text-lg transition duration-200 transform hover:scale-105">Manage Users</Link>
+          <Link to="/facilities" className="bg-teal-600 hover:bg-teal-700 text-white rounded-2xl shadow-lg p-6 text-center font-bold text-lg transition duration-200 transform hover:scale-105">Manage Facilities</Link>
+          <Link to="/reports" className="bg-teal-600 hover:bg-teal-700 text-white rounded-2xl shadow-lg p-6 text-center font-bold text-lg transition duration-200 transform hover:scale-105">View Reports</Link>
+          <Link to="/admin/audit-logs" className="bg-teal-600 hover:bg-teal-700 text-white rounded-2xl shadow-lg p-6 text-center font-bold text-lg transition duration-200 transform hover:scale-105">Audit Logs</Link>
+        </div>
+
         {loading ? (
           <p className="text-center text-lg text-gray-500">Loading dashboard...</p>
         ) : error ? (
           <div className="text-red-600 text-center">{error}</div>
-        ) : (
+        ) : stats ? (
           <>
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
@@ -82,13 +111,6 @@ const AdminDashboard = () => {
                 <div className="text-lg text-teal-700 font-bold">Managers: {stats.managers}</div>
                 <div className="text-lg text-teal-700 font-bold">Staff: {stats.staff}</div>
               </div>
-            </div>
-            {/* Quick Links */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-              <Link to="/admin/users" className="bg-teal-600 hover:bg-teal-700 text-white rounded-2xl shadow-lg p-6 text-center font-bold text-lg transition duration-200 transform hover:scale-105">Manage Users</Link>
-              <Link to="/facilities" className="bg-teal-600 hover:bg-teal-700 text-white rounded-2xl shadow-lg p-6 text-center font-bold text-lg transition duration-200 transform hover:scale-105">Manage Facilities</Link>
-              <Link to="/reports" className="bg-teal-600 hover:bg-teal-700 text-white rounded-2xl shadow-lg p-6 text-center font-bold text-lg transition duration-200 transform hover:scale-105">View Reports</Link>
-              <Link to="/admin/audit-logs" className="bg-teal-600 hover:bg-teal-700 text-white rounded-2xl shadow-lg p-6 text-center font-bold text-lg transition duration-200 transform hover:scale-105">Audit Logs</Link>
             </div>
             {/* Recent Activity */}
             <div className="grid md:grid-cols-2 gap-10">
@@ -128,7 +150,7 @@ const AdminDashboard = () => {
               </div>
             </div>
           </>
-        )}
+        ) : null}
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ const ManagerDashboard = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
   const navigate = useNavigate();
 
@@ -63,6 +64,46 @@ const ManagerDashboard = () => {
           </div>
         </div>
 
+        {/* Hamburger for dashboard links (mobile only) */}
+        <div className="md:hidden mb-6 relative">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-3xl p-2"
+            aria-label="Open dashboard menu"
+          >
+            &#9776;
+          </button>
+          {menuOpen && (
+            <div className="absolute bg-white shadow-lg rounded-lg mt-2 w-48 z-30 right-0">
+              <Link to="/manager/facilities" className="block px-4 py-2 hover:bg-teal-100" onClick={() => setMenuOpen(false)}>Manage Facilities</Link>
+              <Link to="/manager/reports" className="block px-4 py-2 hover:bg-teal-100" onClick={() => setMenuOpen(false)}>View All Reports</Link>
+              <Link to="/reports/new" className="block px-4 py-2 hover:bg-teal-100" onClick={() => setMenuOpen(false)}>Submit Report</Link>
+            </div>
+          )}
+        </div>
+
+        {/* Desktop links */}
+        <div className="hidden md:flex flex-col md:flex-row gap-4 mb-10 justify-center">
+          <Link
+            to="/manager/facilities"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-lg px-8 py-3 font-bold text-lg transition duration-200 transform hover:scale-105 text-center"
+          >
+            Manage Facilities
+          </Link>
+          <Link
+            to="/manager/reports"
+            className="bg-purple-600 hover:bg-purple-700 text-white rounded-xl shadow-lg px-8 py-3 font-bold text-lg transition duration-200 transform hover:scale-105 text-center"
+          >
+            View All Reports
+          </Link>
+          <Link
+            to="/reports/new"
+            className="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg px-8 py-3 font-bold text-lg transition duration-200 transform hover:scale-105 text-center"
+          >
+            Submit Report
+          </Link>
+        </div>
+
         {loading ? (
           <p className="text-center text-lg text-gray-500">Loading dashboard...</p>
         ) : error ? (
@@ -103,28 +144,6 @@ const ManagerDashboard = () => {
                 <div className="text-2xl font-extrabold text-green-700">{resolvedReports.length}</div>
                 <div className="text-gray-600 mt-1">Resolved Reports</div>
               </div>
-            </div>
-
-            {/* Quick Actions */}
-            <div className="flex flex-col md:flex-row gap-4 mb-10 justify-center">
-              <Link
-                to="/manager/facilities"
-                className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-lg px-8 py-3 font-bold text-lg transition duration-200 transform hover:scale-105 text-center"
-              >
-                Manage Facilities
-              </Link>
-              <Link
-                to="/manager/reports"
-                className="bg-purple-600 hover:bg-purple-700 text-white rounded-xl shadow-lg px-8 py-3 font-bold text-lg transition duration-200 transform hover:scale-105 text-center"
-              >
-                View All Reports
-              </Link>
-              <Link
-                to="/reports/new"
-                className="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg px-8 py-3 font-bold text-lg transition duration-200 transform hover:scale-105 text-center"
-              >
-                Submit Report
-              </Link>
             </div>
 
             {/* Recent Reports */}

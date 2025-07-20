@@ -54,7 +54,15 @@ const AuditLogs = () => {
       <div className="w-full max-w-7xl mx-auto bg-white rounded-3xl shadow-2xl p-8 md:p-12">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          <h1 className="text-3xl font-extrabold text-teal-700 mb-4 md:mb-0 drop-shadow">Audit Logs</h1>
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-6">
+            <Link
+              to="/admin/dashboard"
+              className="bg-teal-600 hover:bg-teal-700 text-white rounded-lg px-6 py-2 font-semibold transition duration-200"
+            >
+              ← Back to Dashboard
+            </Link>
+            <h1 className="text-3xl font-extrabold text-teal-700 text-center drop-shadow">Audit Logs</h1>
+          </div>
           <div className="flex gap-4 items-center">
             <span className="text-gray-600">Welcome, Admin</span>
             <button
@@ -79,14 +87,6 @@ const AuditLogs = () => {
               <option value="update">Update</option>
               <option value="delete">Delete</option>
             </select>
-          </div>
-          <div className="flex gap-4">
-            <Link
-              to="/admin/dashboard"
-              className="bg-teal-600 hover:bg-teal-700 text-white rounded-lg px-6 py-2 font-semibold transition duration-200"
-            >
-              ← Back to Dashboard
-            </Link>
           </div>
         </div>
 

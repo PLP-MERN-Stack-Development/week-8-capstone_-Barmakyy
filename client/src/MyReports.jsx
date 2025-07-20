@@ -26,14 +26,16 @@ const MyReports = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-teal-100">
-      <div className="w-full max-w-4xl bg-white rounded-3xl shadow-2xl p-8 md:p-12 relative">
-        <button
-          onClick={() => navigate('/staff/dashboard')}
-          className="absolute left-6 top-6 bg-teal-100 hover:bg-teal-200 text-teal-700 font-bold py-2 px-4 rounded-lg shadow-sm transition"
-        >
-          ← Back to Dashboard
-        </button>
-        <h2 className="text-2xl font-bold text-teal-700 mb-6 text-center">My Reports</h2>
+      <div className="w-full max-w-4xl bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-6">
+          <button
+            onClick={() => navigate('/staff/dashboard')}
+            className="bg-teal-100 hover:bg-teal-200 text-teal-700 font-bold py-2 px-4 rounded-lg shadow-sm transition"
+          >
+            ← Back to Dashboard
+          </button>
+          <h2 className="text-2xl font-bold text-teal-700 text-center">My Reports</h2>
+        </div>
         {loading ? (
           <p className="text-center text-lg text-gray-500">Loading reports...</p>
         ) : error ? (

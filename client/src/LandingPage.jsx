@@ -1,16 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-
-const Navbar = () => (
-  <nav className="w-full flex items-center justify-between py-4 px-6 bg-white/80 backdrop-blur-md shadow-md fixed top-0 left-0 z-20">
-    <div className="text-2xl font-bold text-teal-700 tracking-tight">WASH Health</div>
-    <ul className="flex space-x-6 text-gray-700 font-medium">
-      <li><Link to="/" className="hover:text-teal-600 transition">Home</Link></li>
-      <li><Link to="/about" className="hover:text-teal-600 transition">About</Link></li>
-      <li><Link to="/contact" className="hover:text-teal-600 transition">Contact</Link></li>
-    </ul>
-  </nav>
-);
+import Navbar from './Navbar';
 
 const features = [
   {

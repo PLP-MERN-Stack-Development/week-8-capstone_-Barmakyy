@@ -49,20 +49,15 @@ const ManagerReports = () => {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 py-10 px-2 md:px-6">
       <div className="w-full max-w-7xl mx-auto bg-white rounded-3xl shadow-2xl p-8 md:p-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          <h1 className="text-3xl font-extrabold text-indigo-700 mb-4 md:mb-0 drop-shadow">Manager Reports</h1>
-          <div className="flex gap-4 items-center">
-            <span className="text-gray-600">Welcome, Manager</span>
-            <button
-              onClick={handleLogout}
-              className="bg-red-600 hover:bg-red-700 text-white rounded-lg px-4 py-2 font-semibold transition duration-200"
-            >
-              Logout
-            </button>
-          </div>
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-6">
+          <Link
+            to="/manager/dashboard"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg px-6 py-2 font-semibold transition duration-200"
+          >
+            ← Back to Dashboard
+          </Link>
+          <h1 className="text-3xl font-extrabold text-indigo-700 text-center drop-shadow">Manager Reports</h1>
         </div>
-
-        {/* Filter and Actions */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-6">
           <div className="flex gap-4 mb-4 md:mb-0">
             <select
@@ -77,12 +72,6 @@ const ManagerReports = () => {
             </select>
           </div>
           <div className="flex gap-4">
-            <Link
-              to="/manager/dashboard"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg px-6 py-2 font-semibold transition duration-200"
-            >
-              ← Back to Dashboard
-            </Link>
             <Link
               to="/reports/new"
               className="bg-green-600 hover:bg-green-700 text-white rounded-lg px-6 py-2 font-semibold transition duration-200"
